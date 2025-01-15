@@ -58,25 +58,6 @@ driver.quit()
 
 dataSetAll = data['props']['pageProps']['dataSetAll']
 
-selected_columns = [
-    0, # Rank
-    1, # Symbol
-    3, # Name
-    5, # SmartProb
-    6, # SmartScore
-    7, # RankChange
-    8, # FundamentalProb
-    9, # FundamentalScore
-    10, # TechnicalProb
-    11, # TechnicalScore
-    12, # SentimentProb
-    13, # SentimentScore
-    15, # Sector
-    16, # Industry
-    19, # RiskScore
-    20, # RiskProb
-]
-
 selected_column_to_index = {
     "Rank": 0,
     "Symbol": 1,
@@ -94,6 +75,7 @@ selected_column_to_index = {
     "Industry": 16,
     "RiskScore": 19,
     "RiskProb": 20,
+    "Track": 29,
 }
 
 TECHNICAL_DATA_INDEX = 28
@@ -106,8 +88,8 @@ selected_data = []
 
 for row in dataSetAll[1:]:
     selected_row = []
-    for column in selected_columns:
-        selected_row.append(row[column])
+    for column, index in selected_column_to_index.items():
+        selected_row.append(row[index])
     for key in technical_data_keys:
         selected_row.append(row[TECHNICAL_DATA_INDEX].get(key, None))
     selected_data.append(selected_row)

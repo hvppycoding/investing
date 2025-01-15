@@ -114,4 +114,4 @@ for row in dataSetAll[1:]:
 
 df = pd.DataFrame(selected_data, columns=columns)
 
-df.to_csv('data.csv', index=False, encoding='utf-8')
+df.to_csv(OUTPUT, index=False, encoding='utf-8')

@@ -4,7 +4,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   schedule:
-    - cron: '0 12 * * *' # 매일 오후 9시(UTC+09:00 고려)에 실행
+    - cron: '0 12 * * 1-5' # 평일 오후 9시(UTC+09:00 고려)에 실행
 
 jobs:
   update:

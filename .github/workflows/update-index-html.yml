@@ -38,7 +38,7 @@ jobs:
             --url ${{ secrets.SECRET_DATA_URL }} \
             --element ${{ secrets.SECRET_ELEMENT }} \
             --output data.csv
-          csvtotable data.csv index.html -o
+          csvtotable data.csv index.html -o -c investing
 
       - name: Commit changes
         run: |

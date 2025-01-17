@@ -53,6 +53,8 @@ soup = BeautifulSoup(html, "html.parser")
 
 script_tag = soup.find("script", id=ELEMENT)
 json_data = script_tag.string
+with open("data.json", "w") as f:
+    f.write(json_data)
 data = json.loads(json_data)
 driver.quit()
 
@@ -64,18 +66,23 @@ selected_column_to_index = {
     "Name": 3,
     "SmartProb": 5,
     "SmartScore": 6,
-    "RankChange": 7,
-    "FundamentalProb": 8,
-    "FundamentalScore": 9,
-    "TechnicalProb": 10,
-    "TechnicalScore": 11,
-    "SentimentProb": 12,
-    "SentimentScore": 13,
+    "ScoreChange": 7,
+    "FundaProb": 8,
+    "FundaScore": 9,
+    "TechProb": 10,
+    "TechScore": 11,
+    "SentiProb": 12,
+    "SentiScore": 13,
     "Sector": 15,
     "Industry": 16,
     "RiskScore": 19,
     "RiskProb": 20,
-    "Track": 29,
+    "Accuracy": 29,
+}
+
+index_to_processors = {
+    3: lambda x: x if len(x) < 30 else x[:30] + "...",
+    5: lambda x: str(float(x) * 100) + "%",
 }
 
 TECHNICAL_DATA_INDEX = 28

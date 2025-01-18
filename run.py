@@ -233,7 +233,7 @@ selected_tech_data_keys = [
 ]
 
 tech_data_processors = {
-    "pref_week": color_percentage,
+    "perf_week": color_percentage,
     "perf_month": color_percentage,
     "perf_quarter": color_percentage,
     "perf_halfyear": color_percentage,
@@ -257,7 +257,7 @@ for row in dataSetAll[1:]:
         if key in tech_data_processors:
             selected_row.append(tech_data_processors[key](data))
         else:
-            selected_row.append(row[TECHNICAL_DATA_INDEX].get(key, None))
+            selected_row.append(data)
     selected_data.append(selected_row)
 
 df = pd.DataFrame(selected_data, columns=columns)
